@@ -1,5 +1,6 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import {useDispatch, useSelector } from 'react-redux';
+
 //useDispatch => we cna use to execute the actions that we have
 //useSelector => Access to state inside the component
 
@@ -11,15 +12,22 @@ import  { createNewProductAction } from '../components/actions/productActions';
 const NewProducts = () => {
 
 
+    // state component, and we can use this because the state only will work here.
+    
+    const [name, setName] = useState('');
+    const [price, setPrice] = useState(0)
+
+
+
     //use useDispatch and create a function
 
     const dispatch = useDispatch()
 
 
     //call the action from productAction
-    
-    const addProduct = () => dispatch (
-        createNewProductAction()
+
+    const addProduct = (product) => dispatch (
+        createNewProductAction(product)
     )
 
 
@@ -29,11 +37,16 @@ const NewProducts = () => {
         e.preventDefault() 
         
         // validate form
-
+            if(name.trim() === '' || price <= 0){
+                return;
+            }
         // if not errors
 
         //create new Product
-        addProduct()
+        addProduct({
+            name,
+            price
+        })
 
     }
 
@@ -57,6 +70,8 @@ const NewProducts = () => {
                                 className='form-control'
                                 placeholder='Poduct Name'
                                 name='name'
+                                value={name}
+                                onChange= {e => setName(e.target.value)}
                                 />
                             </div>
                             <div className='form-group'>
@@ -66,6 +81,8 @@ const NewProducts = () => {
                                 className='form-control'
                                 placeholder='Poduct Price'
                                 name='price'
+                                value={price}
+                                onChange= {e => setPrice(Number(e.target.value))}
                                 />
                             </div>
                             <button 
