@@ -9,3 +9,10 @@ import {
 
 } from '../types/indexTypes'
 
+/// Create new production
+
+export function createNewProductAction (){
+    return () => {
+        console.log('desde action')
+    }
+}
