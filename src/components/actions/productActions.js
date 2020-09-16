@@ -8,11 +8,18 @@ import {
     ADD_PRODUCT_ERROR
 
 } from '../types/indexTypes'
+// import axios
+
+import clientAxios from '../../config/axios';
+
+
+
+
 
 /// Create new production
 
 export function createNewProductAction (product){
-    return (dispatch) => {
+    return async (dispatch) => {
         // console.log('desde action')
         // console.log(product)
 
@@ -20,8 +27,13 @@ export function createNewProductAction (product){
 
         //consult database
         try{
+            // insert API
+            await clientAxios.post('/product', product);
+            //if everything good
+
             dispatch(addProductSuccess(product))
         }catch(error){
+            console.log(error)
             // dispatch execute the the actions (functions)
             dispatch(addProductError(true))
         }
