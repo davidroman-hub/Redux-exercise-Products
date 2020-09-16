@@ -8,7 +8,10 @@ import {
     ADD_PRODUCT_ERROR,
     LIST_ALL_PRODUCTS,
     LIST_ALL_PRODUCTS_SUCCESS,
-    LIST_ALL_PRODUCTS_ERROR
+    LIST_ALL_PRODUCTS_ERROR,
+    FETCH_PRODUCT_DELETE,
+    FETCH_PRODUCT_DELETE_SUCCESS,
+    FETCH_PRODUCT_DELETE_ERROR
 
 } from '../types/indexTypes'
 // import axios
@@ -114,3 +117,17 @@ const listAllProductsError = () => ({
     // if was created with node , you can use the error here 
     payload:true
 })
+
+//SELECT AND DELETE PRODUCT 
+
+    export function deleteProductAction(id){
+        return async (dispatch) => {
+            dispatch(fetchProductDelete(id));
+            //console.log(id)
+        }
+    }
+
+    const fetchProductDelete = id => ({
+        type:FETCH_PRODUCT_DELETE,
+        payload:id
+    })

@@ -7,7 +7,10 @@ import {
     ADD_PRODUCT_ERROR,
     LIST_ALL_PRODUCTS,
     LIST_ALL_PRODUCTS_SUCCESS,
-    LIST_ALL_PRODUCTS_ERROR
+    LIST_ALL_PRODUCTS_ERROR,
+    FETCH_PRODUCT_DELETE,
+    FETCH_PRODUCT_DELETE_SUCCESS,
+    FETCH_PRODUCT_DELETE_ERROR
 
 } from '../types/indexTypes'
 
@@ -16,7 +19,8 @@ import {
 const initialState = {
     products : [],
     error:false,
-    loading:false
+    loading:false,
+    deleteProduct:null
 }
 
 export default function( state = initialState , action){
@@ -50,6 +54,12 @@ export default function( state = initialState , action){
                         error:null,
                         products:action.payload
                     }
+
+                    case FETCH_PRODUCT_DELETE:
+                        return{
+                            ...state,
+                            deleteProduct:action.payload
+                        }
         default:
             return state;
     }
