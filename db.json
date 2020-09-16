@@ -11,11 +11,6 @@
       "id": 4
     },
     {
-      "name": "Jugo de Fresa",
-      "price": "200",
-      "id": 5
-    },
-    {
       "name": "Enchiladas de moles",
       "price": 800,
       "id": 6
@@ -24,11 +19,6 @@
       "name": "rib eye",
       "price": 2220,
       "id": 7
-    },
-    {
-      "name": "Enchiladas de moles",
-      "price": 220,
-      "id": 8
     }
   ]
 }

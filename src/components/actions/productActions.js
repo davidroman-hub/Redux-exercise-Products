@@ -129,10 +129,16 @@ const listAllProductsError = () => ({
                 // console.log(result)
                 await clientAxios.delete(`/productos/${id}`)
                 dispatch(deleteProductSuccess());
-
-            }catch{
+                    // if you deleted show alert
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                        )
+            }catch(error){
                     dispatch(deleteProductError())
-            }
+                    console.log(error)
+                }
         }
     }
 
