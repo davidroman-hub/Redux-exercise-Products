@@ -5,7 +5,10 @@ import {
     
     ADD_PRODUCT,
     ADD_PRODUCT_SUCCESS,
-    ADD_PRODUCT_ERROR
+    ADD_PRODUCT_ERROR,
+    LIST_ALL_PRODUCTS,
+    LIST_ALL_PRODUCTS_SUCCESS,
+    LIST_ALL_PRODUCTS_ERROR
 
 } from '../types/indexTypes'
 // import axios
@@ -54,7 +57,6 @@ export function createNewProductAction (product){
 
 const addProduct = () => ({
     //types descriptions of your application
-
     type:ADD_PRODUCT,
     // paylod modify the state
     payload:true
@@ -72,4 +74,18 @@ const addProductSuccess = product => ({
 const addProductError = state => ({
     type:ADD_PRODUCT_ERROR,
     payload:state
+})
+
+
+///// fUNCTION SHOW ALL PRODUCTS
+
+export function listAllProductsAction() {
+    return async (dispatch) => {
+        dispatch(listAllProducts());
+    }
+}
+
+const listAllProducts = () => ({
+    type: LIST_ALL_PRODUCTS,
+    payload:true
 })
