@@ -15,6 +15,7 @@ import {
 import clientAxios from '../../config/axios';
 // import sweet alert
 import Swal from 'sweetalert2';
+import Products from '../Products';
 
 
 
@@ -82,10 +83,29 @@ const addProductError = state => ({
 export function listAllProductsAction() {
     return async (dispatch) => {
         dispatch(listAllProducts());
+        try{
+            const response = await clientAxios.get('/productos');
+            dispatch(listProductsSuccess(response.data))
+            console.log(response.data)
+        }catch(error){
+            console.log(error);
+            dispatch(listAllProductsError())
+        }
     }
 }
 
 const listAllProducts = () => ({
     type: LIST_ALL_PRODUCTS,
+    payload:true
+})
+
+const listProductsSuccess = products => ({
+    type:LIST_ALL_PRODUCTS_SUCCESS,
+    payload:products
+})
+
+const listAllProductsError = () => ({
+    type:LIST_ALL_PRODUCTS_ERROR,
+    // if was created with node , you can use the error here 
     payload:true
 })

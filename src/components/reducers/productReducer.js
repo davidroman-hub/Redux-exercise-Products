@@ -36,16 +36,20 @@ export default function( state = initialState , action){
 
                 }
             case ADD_PRODUCT_ERROR:
+            case LIST_ALL_PRODUCTS_ERROR:    
                 return{
                     ...state,
                     loading:false,
                     error:action.payload
                 }
-                // case  LIST_ALL_PRODUCTS:
-                //     return{
-                //         ...state,
-                //         loading: action.payload
-                //     }
+                case  LIST_ALL_PRODUCTS_SUCCESS:
+                    return{
+                        ...state,
+                        loading: false,
+                        //error:false,
+                        error:null,
+                        products:action.payload
+                    }
         default:
             return state;
     }
