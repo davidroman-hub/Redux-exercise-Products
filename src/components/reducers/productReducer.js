@@ -4,7 +4,10 @@ import {
     
     ADD_PRODUCT,
     ADD_PRODUCT_SUCCESS,
-    ADD_PRODUCT_ERROR
+    ADD_PRODUCT_ERROR,
+    LIST_ALL_PRODUCTS,
+    LIST_ALL_PRODUCTS_SUCCESS,
+    LIST_ALL_PRODUCTS_ERROR
 
 } from '../types/indexTypes'
 
@@ -19,6 +22,7 @@ const initialState = {
 export default function( state = initialState , action){
     switch(action.type) {
         case ADD_PRODUCT:
+        case  LIST_ALL_PRODUCTS:
             return{
                 ...state,
                 loading:action.payload
@@ -36,7 +40,12 @@ export default function( state = initialState , action){
                     ...state,
                     loading:false,
                     error:action.payload
-                }    
+                }
+                // case  LIST_ALL_PRODUCTS:
+                //     return{
+                //         ...state,
+                //         loading: action.payload
+                //     }
         default:
             return state;
     }
