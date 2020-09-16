@@ -10,7 +10,11 @@ import {
     LIST_ALL_PRODUCTS_ERROR,
     FETCH_PRODUCT_DELETE,
     FETCH_PRODUCT_DELETE_SUCCESS,
-    FETCH_PRODUCT_DELETE_ERROR
+    FETCH_PRODUCT_DELETE_ERROR,
+    FETCH_PRODUCT_EDIT,
+    FETCH_PRODUCT_EDIT_SUCCESS,
+    FETCH_PRODUCT_EDIT_ERROR
+
 
 } from '../types/indexTypes'
 
@@ -20,7 +24,8 @@ const initialState = {
     products : [],
     error:false,
     loading:false,
-    deleteProduct:null
+    deleteProduct:null,
+    productedit:null
 }
 
 export default function( state = initialState , action){
@@ -69,7 +74,12 @@ export default function( state = initialState , action){
                                 state.deleteProduct ) ,
                                 //we have to return to null 
                                 deleteProduct:null
-                        }    
+                        }   
+                    case FETCH_PRODUCT_EDIT:
+                        return{
+                            ...state,
+                            productedit: action.payload
+                        }
         default:
             return state;
     }
