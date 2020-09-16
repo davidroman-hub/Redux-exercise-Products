@@ -9,7 +9,7 @@ import {useDispatch, useSelector } from 'react-redux';
 // Actions redux
 import  { createNewProductAction } from '../components/actions/productActions';
 
-const NewProducts = () => {
+const NewProducts = ({history}) => {
 
 
     // state component, and we can use this because the state only will work here.
@@ -53,6 +53,12 @@ const NewProducts = () => {
             name,
             price
         })
+
+
+        //redirect to the list we use push
+        history.push('/')
+
+
 
     }
 

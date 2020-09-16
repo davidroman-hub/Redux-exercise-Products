@@ -44,6 +44,16 @@
       "name": "rib eye",
       "price": 20,
       "id": 9
+    },
+    {
+      "name": "Enchiladas de moles",
+      "price": 220,
+      "id": 10
+    },
+    {
+      "name": "Jugo de ananas",
+      "price": 303,
+      "id": 11
     }
   ]
 }

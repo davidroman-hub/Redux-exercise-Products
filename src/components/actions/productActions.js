@@ -9,10 +9,9 @@ import {
 
 } from '../types/indexTypes'
 // import axios
-
 import clientAxios from '../../config/axios';
-
-
+// import sweet alert
+import Swal from 'sweetalert2';
 
 
 
@@ -32,10 +31,23 @@ export function createNewProductAction (product){
             //if everything good
 
             dispatch(addProductSuccess(product))
+            //Alert success
+            Swal.fire(
+                'Correct!',
+                'The Product is saved Correctly!',
+                'success'
+            )
         }catch(error){
             console.log(error)
             // dispatch execute the the actions (functions)
             dispatch(addProductError(true))
+
+            //Alert Error
+            Swal.fire({
+                icon:'error',
+                title:'Exist an Error!',
+                text:'Something went wrong to save in the Database, try Again'
+            })
         }
     }
 }
