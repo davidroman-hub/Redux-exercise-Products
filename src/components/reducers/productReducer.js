@@ -37,10 +37,10 @@ export default function( state = initialState , action){
                     ...state,
                     loading:false,
                     products:[...state.products, action.payload]
-
                 }
             case ADD_PRODUCT_ERROR:
-            case LIST_ALL_PRODUCTS_ERROR:    
+            case LIST_ALL_PRODUCTS_ERROR: 
+            case FETCH_PRODUCT_DELETE_ERROR:
                 return{
                     ...state,
                     loading:false,
@@ -60,6 +60,16 @@ export default function( state = initialState , action){
                             ...state,
                             deleteProduct:action.payload
                         }
+                    case FETCH_PRODUCT_DELETE_SUCCESS:
+                        return{
+                            ...state,
+                            //to bring the the other products except the product that we deleted
+                            //and to show in the state fasted
+                            products:state.products.filter(product => product.id !== 
+                                state.deleteProduct ) ,
+                                //we have to return to null 
+                                deleteProduct:null
+                        }    
         default:
             return state;
     }

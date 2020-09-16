@@ -124,10 +124,29 @@ const listAllProductsError = () => ({
         return async (dispatch) => {
             dispatch(fetchProductDelete(id));
             //console.log(id)
+            try {
+                // const result = await clientAxios.delete(`/productos/${id}`)
+                // console.log(result)
+                await clientAxios.delete(`/productos/${id}`)
+                dispatch(deleteProductSuccess());
+
+            }catch{
+                    dispatch(deleteProductError())
+            }
         }
     }
 
     const fetchProductDelete = id => ({
         type:FETCH_PRODUCT_DELETE,
         payload:id
+    })
+
+    const deleteProductSuccess = () => ({
+        type:FETCH_PRODUCT_DELETE_SUCCESS,
+        
+    })
+
+    const deleteProductError = () => ({
+        type:FETCH_PRODUCT_DELETE_ERROR,
+        payload:true
     })
