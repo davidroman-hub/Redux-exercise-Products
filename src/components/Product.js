@@ -37,7 +37,7 @@ const Product = ({product}) => {
     }
 
     // re-program function to redirect
-
+    // to pass with history the information of the product when we pick
     const redirectEdit = product => {
         dispatch(fetchProductEdit(product));
         history.push(`/products/edit/${product.id}`)

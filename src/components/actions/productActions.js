@@ -14,7 +14,8 @@ import {
     FETCH_PRODUCT_DELETE_ERROR,
     FETCH_PRODUCT_EDIT,
     FETCH_PRODUCT_EDIT_SUCCESS,
-    FETCH_PRODUCT_EDIT_ERROR
+    FETCH_PRODUCT_EDIT_ERROR,
+    START_PRODUCT_EDITION
 
 } from '../types/indexTypes'
 // import axios
@@ -172,5 +173,31 @@ const listAllProductsError = () => ({
 
     const fetchProductAction = product => ({
         type:FETCH_PRODUCT_EDIT,
+        payload:product
+    })
+
+    // the new product to make 
+
+    export function editProductAction(product){
+        return async (dispatch) => {
+            dispatch(editProduct(product));
+            try {
+                // const result = await clientAxios.put(`/productos/${product.id}`, product)
+                // console.log(result)
+                await clientAxios.put(`/productos/${product.id}`, product)
+                dispatch(editProductSuccess(product))
+            } catch (error) {
+                
+            }
+        }
+    }
+
+    const editProduct = (product) => ({
+        type:START_PRODUCT_EDITION,
+        //payload:product
+    })
+
+    const editProductSuccess = product => ({
+        type:FETCH_PRODUCT_EDIT_SUCCESS,
         payload:product
     })

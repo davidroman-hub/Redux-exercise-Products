@@ -13,7 +13,8 @@ import {
     FETCH_PRODUCT_DELETE_ERROR,
     FETCH_PRODUCT_EDIT,
     FETCH_PRODUCT_EDIT_SUCCESS,
-    FETCH_PRODUCT_EDIT_ERROR
+    FETCH_PRODUCT_EDIT_ERROR,
+    START_PRODUCT_EDITION
 
 
 } from '../types/indexTypes'
@@ -46,6 +47,7 @@ export default function( state = initialState , action){
             case ADD_PRODUCT_ERROR:
             case LIST_ALL_PRODUCTS_ERROR: 
             case FETCH_PRODUCT_DELETE_ERROR:
+            case FETCH_PRODUCT_EDIT_ERROR:    
                 return{
                     ...state,
                     loading:false,
@@ -79,6 +81,15 @@ export default function( state = initialState , action){
                         return{
                             ...state,
                             productedit: action.payload
+                        }
+                    case FETCH_PRODUCT_EDIT_SUCCESS:
+                        return{
+                            ...state,
+                            productedit:null,
+                            products:state.products.map( product => 
+                                product.id === action.payload.id ? product = action.payload :
+                                product
+                            )   
                         }
         default:
             return state;
