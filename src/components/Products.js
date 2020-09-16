@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {listAllProductsAction} from '../components/actions/productActions';
-
+import Product from './Product';
 
 const Products = () => {
 
@@ -14,6 +14,10 @@ const Products = () => {
         productsInit()
     },[])
 
+    // bring the state
+
+    const products = useSelector(state => state.productss.products);
+    console.log(products)
 
     return(
         <>
@@ -25,7 +29,18 @@ const Products = () => {
                         <th scope='col'>Price</th>
                         <th scope='col'>Accions</th>
                     </tr>
-                </thead>        
+                </thead>
+                <tbody>
+                    {products.length  === 0 ? "No products" : (
+                        products.map(product => (
+                            <Product
+                                key={product.id}
+                                product={product}
+                                
+                            />
+                        ))
+                    )}
+                </tbody>        
             </table>
         </>
     )

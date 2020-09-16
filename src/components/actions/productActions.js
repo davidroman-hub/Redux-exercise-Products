@@ -86,9 +86,9 @@ export function listAllProductsAction() {
         try{
             const response = await clientAxios.get('/productos');
             dispatch(listProductsSuccess(response.data))
-            console.log(response.data)
+            // console.log(response.data)
         }catch(error){
-            console.log(error);
+            // console.log(error);
             dispatch(listAllProductsError())
         }
     }
