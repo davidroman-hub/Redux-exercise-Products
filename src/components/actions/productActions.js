@@ -84,6 +84,11 @@ export function listAllProductsAction() {
     return async (dispatch) => {
         dispatch(listAllProducts());
         try{
+            // setTimeout(async () => {
+            //     const response = await clientAxios.get('/productos');
+            //     dispatch(listProductsSuccess(response.data))
+            //     // console.log(response.data)
+            // },1000)
             const response = await clientAxios.get('/productos');
             dispatch(listProductsSuccess(response.data))
             // console.log(response.data)
