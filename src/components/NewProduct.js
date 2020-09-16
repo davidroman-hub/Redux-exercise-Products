@@ -24,6 +24,12 @@ const NewProducts = () => {
     const dispatch = useDispatch()
 
 
+    //use useSelector access to the state store
+
+    const charging = useSelector( state => state.productss.loading)
+    const error  = useSelector(state => state.productss.error)
+
+    console.log(charging)
     //call the action from productAction
 
     const addProduct = (product) => dispatch (
@@ -91,6 +97,8 @@ const NewProducts = () => {
                                     Add
                                 </button>
                         </form>
+                        {charging ? <p>Loading...</p> : null}
+                        {error ? <p className='alert alert-danger p2 mt-4 text-center'>Hubo un error</p> : null}
                     </div>
                 </div>
             </div>

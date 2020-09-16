@@ -29,6 +29,21 @@
       "name": "Enchiladas de moles",
       "price": 800,
       "id": 6
+    },
+    {
+      "name": "rib eye",
+      "price": 2220,
+      "id": 7
+    },
+    {
+      "name": "Enchiladas de moles",
+      "price": 220,
+      "id": 8
+    },
+    {
+      "name": "rib eye",
+      "price": 20,
+      "id": 9
     }
   ]
 }

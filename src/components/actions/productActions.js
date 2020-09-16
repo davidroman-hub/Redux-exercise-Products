@@ -28,7 +28,7 @@ export function createNewProductAction (product){
         //consult database
         try{
             // insert API
-            await clientAxios.post('/product', product);
+            await clientAxios.post('/productos', product);
             //if everything good
 
             dispatch(addProductSuccess(product))
