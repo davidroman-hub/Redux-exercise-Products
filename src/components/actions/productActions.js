@@ -22,7 +22,7 @@ import {
 import clientAxios from '../../config/axios';
 // import sweet alert
 import Swal from 'sweetalert2';
-import Products from '../Products';
+//import Products from '../Products';
 
 
 
@@ -187,7 +187,8 @@ const listAllProductsError = () => ({
                 await clientAxios.put(`/productos/${product.id}`, product)
                 dispatch(editProductSuccess(product))
             } catch (error) {
-                
+                console.log(error)
+                dispatch(editProductError())
             }
         }
     }
@@ -201,3 +202,8 @@ const listAllProductsError = () => ({
         type:FETCH_PRODUCT_EDIT_SUCCESS,
         payload:product
     })
+
+    const editProductError = () => ({
+        type:FETCH_PRODUCT_EDIT_ERROR,
+        payload:true
+    }) 

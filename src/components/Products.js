@@ -12,7 +12,8 @@ const Products = () => {
 
     useEffect(() => {
         //API
-        productsInit()
+        productsInit();
+        // eslint-disable-next-line
     },[])
 
     // bring the state
