@@ -1,14 +1,9 @@
 {
   "productos": [
     {
-      "name": "Jugo de Naranja",
-      "price": "500",
-      "id": 3
-    },
-    {
-      "name": "Rib Eye 800g",
-      "price": "800",
-      "id": 4
+      "name": "computadora de sandra",
+      "price": "400",
+      "id": 1
     }
   ]
 }
