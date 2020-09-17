@@ -4,6 +4,11 @@
       "name": "computadora de sandra",
       "price": "400",
       "id": 1
+    },
+    {
+      "name": "rib eye",
+      "price": 10,
+      "id": 2
     }
   ]
 }

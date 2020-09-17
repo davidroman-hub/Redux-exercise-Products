@@ -29,8 +29,11 @@ const NewProducts = ({history}) => {
 
     //use useSelector access to the state store
 
-    const charging = useSelector( state => state.productss.loading)
-    const error  = useSelector(state => state.productss.error)
+    const charging = useSelector( state => state.productss.loading);
+    const error  = useSelector(state => state.productss.error);
+    const alert = useSelector(state => state.alertss.alert);
+    
+
 
     console.log(charging)
     //call the action from productAction
@@ -79,6 +82,7 @@ const NewProducts = ({history}) => {
                         <h2 className='text-center mb-4 '>
                             Add New Product
                         </h2>
+                            {alert ? <p className={alert.class}> {alert.msg}</p> : null}
                         <form 
                             onSubmit ={ submitNewProduct }
                         >
