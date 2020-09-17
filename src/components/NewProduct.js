@@ -8,7 +8,7 @@ import {useDispatch, useSelector } from 'react-redux';
 
 // Actions redux
 import  { createNewProductAction } from '../components/actions/productActions';
-import { showAlert } from './actions/alertActions'
+import { showAlert, hideAlertAction } from './actions/alertActions'
 
 
 
@@ -58,7 +58,7 @@ const NewProducts = ({history}) => {
                 return;
             }
         // if not errors
-
+            dispatch( hideAlertAction() )
         //create new Product
         addProduct({
             name,
