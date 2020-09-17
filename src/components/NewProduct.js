@@ -1,13 +1,16 @@
 import React,{ useState } from 'react';
 import {useDispatch, useSelector } from 'react-redux';
 
-//useDispatch => we cna use to execute the actions that we have
+//useDispatch => we can use to execute the actions that we have
 //useSelector => Access to state inside the component
 
 
 
 // Actions redux
 import  { createNewProductAction } from '../components/actions/productActions';
+import { showAlert } from './actions/alertActions'
+
+
 
 const NewProducts = ({history}) => {
 
@@ -44,6 +47,11 @@ const NewProducts = ({history}) => {
         
         // validate form
             if(name.trim() === '' || price <= 0){
+                const response = {
+                    msg:'All the fields are necessary!',
+                    class:'alert alert-danger text-center text-upppercase p3'
+                }
+                dispatch(showAlert(response));
                 return;
             }
         // if not errors
